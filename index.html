@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="manifest.json">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JUST FOR FUN</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>JUST FOR FUN</h1>
+  </header>
+
+  <section class="upload-section">
+    <h2>📤 Upload Your Picture</h2>
+    <form id="uploadForm">
+      <input type="file" id="imageInput" accept="image/*" required>
+      <input type="text" id="captionInput" placeholder="Enter a caption (optional)">
+      <button type="submit" onclick="playTapSound()">Upload</button>
+    </form>
+  </section>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(reg => console.log('Service Worker registered ✅'))
+      .catch(err => console.error('Service Worker failed 😢', err));
+  }
+</script>
+
+  <section id="gallery" class="gallery-section">
+    <h2>📸 Public Gallery</h2>
+    <!-- Uploaded images will appear here -->
+  </section>
+
+  <audio id="tapSound" src="tap.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
